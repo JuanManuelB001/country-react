@@ -4,10 +4,9 @@ import { UrlData } from "../data/UrlData";
 import { Loading } from "./Loading";
 import { Country } from "./Country";
 
-
 export function Search() {
   const [characterName, setCharacterName] = useState("");
-  const [characterData, setCharacterData] = useState(null);
+  const [characterData, setCharacterData] = useState([]);
   const [loading, setLoading] = useState(false);
   const handleSubmit = (event) => {
     //URL DATOS
@@ -33,6 +32,8 @@ export function Search() {
 
   const handleReset = (event) => {
     event.preventDefault();
+    setCharacterName("")
+    setCharacterData(null);
   };
   return (
     <div>
@@ -42,22 +43,25 @@ export function Search() {
           type="text"
           id="dato"
           name="dato"
+          value={characterName}
           placeholder="Ingrese datos paises"
           onChange={handleChange}
         />
 
         <div className="buttons">
-          <button type="sutmit">Submit</button>
+          <button type="submit">Submit</button>
           <button type="reset" className="reset" onClick={handleReset}>
-            {" "}
-            Reset
+            Reset{" "}
+            
           </button>
         </div>
       </form>
-      {loading && <Loading />}
-      `{!loading && characterData.items[0] && (
-        <Country/>
-      )}`
+      {loading && (
+        <Loading />
+      )}
+      {!loading && characterData.length >0 && (
+  <Country props={characterData} />
+)}
     </div>
   );
 }

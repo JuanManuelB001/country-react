@@ -2,12 +2,12 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import { Search } from './components/Search'
+import { MyRoutes } from './routes/Routes'
 function App() {
   
 
   return (
-    <Search/>
+  <MyRoutes/>  
   )
 }
 
