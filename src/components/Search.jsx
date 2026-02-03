@@ -7,7 +7,7 @@ import { Country } from "./Country";
 export function Search() {
   const [characterName, setCharacterName] = useState("");
   const [characterData, setCharacterData] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const handleSubmit = (event) => {
     //URL DATOS
     setLoading(true);

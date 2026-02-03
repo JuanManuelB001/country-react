@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { CountryCoatOfArms } from "../components/CountryCoatOfArms";
-import { GoogleMaps } from "../components/GoogleMaps";
+
 
 export function DetailsCountry({props}){
     const {state} = useLocation();
