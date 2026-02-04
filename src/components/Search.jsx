@@ -32,7 +32,7 @@ export function Search() {
 
   const handleReset = (event) => {
     event.preventDefault();
-    setCharacterName("")
+    setCharacterName("");
     setCharacterData(null);
   };
   return (
@@ -40,6 +40,7 @@ export function Search() {
       <form className="formulario" onSubmit={handleSubmit}>
         <label htmlFor="dato">Ingrese pais</label>
         <input
+          className="input-text"
           type="text"
           id="dato"
           name="dato"
@@ -52,16 +53,13 @@ export function Search() {
           <button type="submit">Submit</button>
           <button type="reset" className="reset" onClick={handleReset}>
             Reset{" "}
-            
           </button>
         </div>
       </form>
-      {loading && (
-        <Loading />
+      {loading && <Loading />}
+      {!loading && characterData.length > 0 && (
+        <Country props={characterData} />
       )}
-      {!loading && characterData.length >0 && (
-  <Country props={characterData} />
-)}
     </div>
   );
 }

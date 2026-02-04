@@ -1,12 +1,12 @@
-import "../styles/loading.css"
+import "../styles/loading.css";
 
-export function Loading(){
-    return(
-        <div>
-            <div className="world">
-dsd
-            </div>
-            <p><span className="loading">cargando...</span></p>
-        </div>
-    );
+export function Loading() {
+  return (
+    <div>
+      <div className="world"></div>
+      <p>
+        <span className="loading">cargando...</span>
+      </p>
+    </div>
+  );
 }
