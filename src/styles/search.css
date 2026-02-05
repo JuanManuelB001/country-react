@@ -38,6 +38,6 @@ label {
 }
 .input-text:focus {
   border-color: #646cff;
-  box-shadow: 0 10px 30px rgba(201, 203, 234, 0.5);
+  box-shadow: 0 10px 30px rgba(201, 203, 234, 0.8);
   color: rgb(14, 19, 19);
 }
