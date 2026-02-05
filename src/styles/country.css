@@ -1,10 +1,27 @@
+.country {
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding: 1em;
+  background: rgba(245, 222, 179, 0.5);
+}
 
+.link-country {
+  text-decoration: none;
+}
 
-.country{
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    padding: 1em;
-    background: wheat;
+.name-common {
+  font-size: 22px;
+  text-decoration: none;
+  text-align: center;
+  bottom: 12px;
+  padding: 0.4em 0.8em;
+  background-color: aliceblue;
+  background-image: url();
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+.container-country:hover .name-common {
+  opacity: 1;
 }
