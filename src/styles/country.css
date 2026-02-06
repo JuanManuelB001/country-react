@@ -1,10 +1,24 @@
 .country {
+  position: relative;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   padding: 1em;
   background: rgba(245, 222, 179, 0.5);
+}
+
+.country-item{
+  position: relative;
+  display: inline-block;
+}
+.info-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.info-btn {
+  cursor: pointer;
 }
 
 .link-country {
@@ -24,6 +38,43 @@
 }
 .container-country:hover .name-common {
   opacity: 1;
+}
+/* popover pegado al botón */
+.popover {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 8px); /* justo al lado */
+  transform: translateY(-50%);
+
+  width: 240px;
+  background: #b33a1a;
+  color: white;
+  padding: 16px;
+  border-radius: 12px;
+
+  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+  z-index: 100;
+}
+
+.popover::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -6px;
+  transform: translateY(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: transparent #b33a1a transparent transparent;
+}
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 
