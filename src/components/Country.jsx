@@ -26,11 +26,11 @@ export function Country({ props }) {
           >
             <div className="container-country">
               <img
-                src={country.flags.png}
-                alt={country.name.common}
+                src={country.flags?.png}
+                alt={country.name?.common}
               />
               <p className="name-common">
-                {country.name.common}
+                {country.name?.common}
               </p>
             </div>
           </Link>
