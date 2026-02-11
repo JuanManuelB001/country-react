@@ -6,7 +6,7 @@ export function MyRoutes(){
         <Router>
             <Routes>
                 <Route exact path="/"  element={<SearchPage/>}/>
-                <Route exact path="country-details"  element={<DetailsCountry/>} />
+                <Route exact path="/country-details/:code"  element={<DetailsCountry/>} />
             </Routes>
         </Router>
     );

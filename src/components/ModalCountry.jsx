@@ -6,7 +6,7 @@ export function ModalCountry({ country }) {
     : null;
   return (
     <>
-      <h4>{country.name.common}</h4>
+      <h4>{country?.name.common}</h4>
       <p>Capital: {country.capital}</p>
       <p>Region: {country.region}</p>
       <p>

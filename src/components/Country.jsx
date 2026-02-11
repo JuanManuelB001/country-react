@@ -5,6 +5,7 @@ import { useState } from "react";
 
 export function Country({ props }) {
   const [open, setOpen] = useState(null);
+  console.log(props, 'country')
   return (
     <div className="country">
       {props.map((country, index) => (
@@ -20,7 +21,7 @@ export function Country({ props }) {
           </button>
 
           <Link
-            to="country-details"
+            to={`country-details/${country.cca3}`}
             state={{ country }}
             className="link-country"
           >

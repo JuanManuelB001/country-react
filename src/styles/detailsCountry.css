@@ -1,6 +1,5 @@
-
-.container-detail{
-    display: grid;
+.container-detail {
+  display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 3rem;
   width: 80%;
@@ -11,22 +10,26 @@
   border-radius: 16px;
 }
 
-.country-title{
+.country-title {
   font-size: 2rem;
   letter-spacing: 5px;
   margin-bottom: 1.5px;
 }
 
-.country-info{
+.borderCountry {
+  grid-column: 1 / -1;
+  width: 100%;
+}
+
+.country-info {
   letter-spacing: 2px;
   font-weight: bold;
 }
 
-.country-coat::before{
+.country-coat::before {
   content: "";
   opacity: 0;
   width: 120px;
-  
 }
 
 .country-coat:hover ::before {
@@ -35,10 +38,10 @@
   opacity: 1;
 }
 
-.info{
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
 }
 .flags {
   display: flex;
@@ -49,7 +52,7 @@
 
 .flags img {
   max-width: 180px;
-  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.25));
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.25));
 }
 
 .info a {
@@ -61,10 +64,12 @@
   padding: 0.6rem 1.2rem;
   border-radius: 10px;
   font-weight: bold;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
 }
 
 .info a:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
 }
