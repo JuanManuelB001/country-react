@@ -105,7 +105,7 @@ export function DetailsCountry() {
           </a>
         </div>
 
-          <h1>Borders of {country.name.common}</h1>
+          <h1 className="border-title">Borders of {country.name.common}</h1>
         {<div className="borderCountry">
           {allBorder.length > 0 && <BorderForCountry props={allBorder} />}
         </div> }

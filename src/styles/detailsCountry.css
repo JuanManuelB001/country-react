@@ -16,6 +16,11 @@
   margin-bottom: 1.5px;
 }
 
+.border-title{
+  grid-column: 1/ -1;
+  
+}
+
 .slide-in{
   animation: slide 1.5s ease-in-out forwards;
 }
