@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { CountryCoatOfArms } from "../components/CountryCoatOfArms";
+import "../styles/borderForCountry.css";
+
 export function BorderForCountry({ props }) {
   const [countryArray, setCountryArray] = useState([]); // ARRAY
   useEffect(() => {
@@ -15,26 +17,33 @@ export function BorderForCountry({ props }) {
   }, [props]);
   return (
     <div className="border-country-list">
-      <h1>Borders</h1>
-      {
-      props.length >0 ? (
-        props.map((arrayCountry, i) => (
-          arrayCountry.map((country)=>(
+
+      {props.length > 0 ? (
+        props.map((arrayCountry, i) =>
+          arrayCountry.map((country) => (
             <div key={country.cca3}>
+              <div className="container">
+
               <h4>{country.name.common}</h4>
-              <p>CCA3: {country.cca3}</p>
-              <p>Capital: {country.capital?.join(", ")}</p>
-              <p>Continent: {country.continents}</p>
-              <p>Population: {country.population}</p>
-              <CountryCoatOfArms 
-                type="flag"
-                png={country.flags?.png}
-                svg={country.flags?.svg}
-                alt={`Coat of Arms of ${country?.name.common}`}
-              />
+              <div className="containerDetails">
+                <CountryCoatOfArms
+                  className="image-container"
+                  type="flag"
+                  png={country.flags?.png}
+                  svg={country.flags?.svg}
+                  alt={`Coat of Arms of ${country?.name.common}`}
+                />
+                <div className="details">
+                  <p>CCA3: {country.cca3}</p>
+                  <p>Capital: {country.capital?.join(", ")}</p>
+                  <p>Continent: {country.continents}</p>
+                  <p>Population: {country.population}</p>
+                </div>
+              </div>
+              </div>
             </div>
-          ))
-        ))
+          )),
+        )
       ) : (
         <p>No borders</p>
       )}

@@ -1,0 +1,37 @@
+
+
+.containerDetails{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 1em;
+    
+}
+.container {
+    background: rgba(245, 222, 179, 0.5);
+    
+}
+.image-container{
+    grid-column: 1 /-1;
+    width: 100%;
+}
+h4{
+        letter-spacing: 4px;
+        font-size: 30px;
+        padding: 10px 0;
+    }
+    p{
+        letter-spacing: 2px;
+        font-size: larger;
+    }
+
+@media (max-width: 560px){
+    .containerDetails{
+        display: flex;
+        flex-direction: column;
+    }
+    .country-flag img{
+        width: 80%;
+    }
+    
+}

@@ -16,6 +16,21 @@
   margin-bottom: 1.5px;
 }
 
+.slide-in{
+  animation: slide 1.5s ease-in-out forwards;
+}
+
+@keyframes slide{
+  from{
+    opacity: 0.6;
+    transform: translateX(100%);
+  }
+  to{
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
 .borderCountry {
   grid-column: 1 / -1;
   width: 100%;

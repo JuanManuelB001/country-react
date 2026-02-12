@@ -7,7 +7,7 @@ export function Country({ props }) {
   const [open, setOpen] = useState(null);
   console.log(props, 'country')
   return (
-    <div className="country">
+    <div className="country slide-out">
       {props.map((country, index) => (
         <div key={index} className="country-index">
           

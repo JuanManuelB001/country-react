@@ -48,7 +48,7 @@ export function DetailsCountry() {
   }
 
   return (
-    <div className="wraper-details">
+    <div className="wraper-details slide-in">
       <h2 className="country-title">{country.name.common}</h2>
 
       <div className="container-detail">
@@ -105,6 +105,7 @@ export function DetailsCountry() {
           </a>
         </div>
 
+          <h1>Borders of {country.name.common}</h1>
         {<div className="borderCountry">
           {allBorder.length > 0 && <BorderForCountry props={allBorder} />}
         </div> }
