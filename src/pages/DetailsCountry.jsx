@@ -6,30 +6,38 @@ import { BordersCountry } from "../components/BordersCountry";
 import { StartRate } from "../components/StartRate";
 import { BorderForCountry } from "../components/BorderForCountry";
 import { UrlData } from "../data/UrlData";
-import { all } from "axios";
 
 export function DetailsCountry() {
   const { state } = useLocation();
   const country = state?.country;
 
-  const [allBorder, allSetBorder] = useState([]);
-  const handleCountry = ((border) =>{
-    allSetBorder(border)
-  })
+  const [allBorder, setAllBorder] = useState([]);
+
+  // Función para traer los datos de los países fronterizos
+  const fetchBordersData = async (borders) => {
+  if (!borders || borders.length === 0) return;
+
+  try {
+    const promises = borders.map((border) =>
+      UrlData(`/alpha/${border}`)
+    );
+
+    // RESOLVER TODAS LAS PROMESAS
+    const result = await Promise.all(promises);
+
+    setAllBorder(result);
+
+  } catch (error) {
+    console.error("Error fetching border countries: ", error);
+  }
+};
+
   useEffect(() => {
-    if(!country?.borders) return;
-
-
-    if (country?.borders) {
-      // BUSCAR LOS DATOS DE BORDERS
-      handleCountry(country.borders)
-        
-    }
-  },[]);
-  console.log(allBorder)
-
-
-
+    if (!country?.borders) return;
+    // Llamamos a la función para traer los datos de las fronteras
+    setAllBorder([]);
+    fetchBordersData(country?.borders);
+  }, [country]);
 
   const countCoats = () => {
     return !!(country?.coatOfArms?.png || country?.coatOfArms?.svg);
@@ -45,7 +53,6 @@ export function DetailsCountry() {
 
       <div className="container-detail">
         <div className="flags">
-          {/* ESCUDO */}
           {countCoats() && (
             <CountryCoatOfArms
               type="coat"
@@ -55,7 +62,6 @@ export function DetailsCountry() {
             />
           )}
 
-          {/* BANDERA */}
           <CountryCoatOfArms
             type="flag"
             png={country.flags?.png}
@@ -73,7 +79,6 @@ export function DetailsCountry() {
             Continent: {country.continents?.[0] || "No continent"}
           </p>
 
-          {/* CURRENCIES (sin div dentro de p) */}
           {country.currencies &&
             Object.values(country.currencies).map((current) => (
               <p className="country-info" key={current.name}>
@@ -87,12 +92,10 @@ export function DetailsCountry() {
             </p>
           )}
 
-          {/* Population (sin div dentro de p) */}
           <div className="country-info">
             Population: <StartRate popularity={country.population} />
           </div>
 
-          {/* MAPA GOOGLE MAPS */}
           <a
             href={country.maps?.googleMaps}
             target="_blank"
@@ -102,16 +105,9 @@ export function DetailsCountry() {
           </a>
         </div>
 
-        {/* BORDERS */}
-        <div className="borderCountry">
-           {allBorder && (
-          <BorderForCountry
-            props={allBorder}
-            className="borderCountry"
-          />
-        )}
-        </div>
-       
+        {<div className="borderCountry">
+          {allBorder.length > 0 && <BorderForCountry props={allBorder} />}
+        </div> }
       </div>
     </div>
   );
